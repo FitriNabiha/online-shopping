@@ -75,8 +75,6 @@ public class ManagementController {
 			BindingResult bindingResult, Model model, @RequestParam("file") MultipartFile file,
 			HttpServletRequest request) {
 
-		// check if there are any error
-
 		if (mProduct.getId() == 0) {
 
 			new ProductValidator().validate(mProduct, bindingResult);
@@ -89,8 +87,6 @@ public class ManagementController {
 			}
 
 			try {
-
-				// Get the file and save it somewhere
 				fileSaveInFolder(mProduct, file, request);
 				productService.saveProduct(mProduct);
 				return "redirect:/manage/products?operation=product";

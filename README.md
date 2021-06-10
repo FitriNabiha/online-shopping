@@ -13,17 +13,17 @@
 This is an online shopping website that implements Spring Boot, Maven, Spring web-flow and Restful services.
 
 # Functions using Spring Boot
-    1. 
+    1) insert product
+    2) add product category
+    3) edit product
+    4) view product
+    5) manage product status
+
 
 # Functions with RESTfull web-service
-    1. 
+    1. GET method - request to read data
+    2. POST method - request to create data
 
-## Requirements
-
-For building and running the application you need:
-
-- [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- [Maven 3](https://maven.apache.org)
 
 # How to run the project:
 
@@ -42,7 +42,7 @@ insert into online_shopping_db.user_detail(contact_number,email,enabled,first_na
 6. Then Again run project using bootAS
 7. create user by signup
 
+# Presentation Video: 
+
 ### 
 
-# online-shopping
-# online-shopping
