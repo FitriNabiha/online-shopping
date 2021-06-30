@@ -10,7 +10,7 @@
   5. Afif bin Zamani	B17CS0036
 --------------------------------------------------------------------------------------------------------------------------------------
 
-This is an online shopping website that implements Spring Boot, Maven, Spring web-flow and Restful services.
+This is an online shopping website that implements Spring Boot, Maven, Spring web-flow and Restful services. This website also has been refactored and fixed based on code and design smells found during Project 1 implementation.
 
 # Functions using Spring Boot
     1) insert product
@@ -27,7 +27,7 @@ This is an online shopping website that implements Spring Boot, Maven, Spring we
 
 # How to run the project:
 
-1. Clone this project https://github.com/sushildangi/online-shopping.git change default branch "Upgrade-spring-boot" if default branch is "master"
+1. Clone this project https://github.com/FitriNabiha/online-shopping.git change default branch "Upgrade-spring-boot" if default branch is "master"
 2. create databases schema in mysql - **online_shopping_db**
 3. edit **username** and **password** in **applicaton.properties** file
 4. Run Project One time using Spring boot command - **mvn spring-boot:run** or using eclipse IDE run as Java Application
@@ -42,9 +42,13 @@ insert into online_shopping_db.user_detail(contact_number,email,enabled,first_na
 6. Then Again run project using bootAS
 7. create user by signup
 
-# Presentation Video: 
+# Presentation Video for Assignment 1: 
 
 https://www.youtube.com/watch?v=IUIKF46VeW0 
+
+# Presentation Video for Project 1 Code and Design Smells:
+
+https://youtu.be/FVWb_7ik514 
 
 ### 
 
