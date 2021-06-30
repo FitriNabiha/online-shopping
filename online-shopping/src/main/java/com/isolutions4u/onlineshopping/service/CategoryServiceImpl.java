@@ -14,7 +14,7 @@ import com.isolutions4u.onlineshopping.repository.CategoryRepository;
 public class CategoryServiceImpl implements CategoryService {
 
 	@Qualifier("categoryRepository")
-	@Autowired
+	@Autowired 
 	private CategoryRepository categoryRepository;
 
 	@Override
