@@ -1,12 +1,11 @@
 package com.isolutions4u.onlineshopping.controllers;
 
-import java.io.Serializable;
 
-public class ProductNotFoundExceptoion extends Exception implements Serializable {
+public class ProductNotFoundExceptoion extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
-	private String message;
+	private final String message;
 
 	public ProductNotFoundExceptoion(String message) {
 		this.message = System.currentTimeMillis() + " : " + message;
@@ -16,7 +15,9 @@ public class ProductNotFoundExceptoion extends Exception implements Serializable
 		this("Product Not Available!");
 	}
 
-	public String getMessage() {
+	@Override
+	public String getMessage()
+	{
 		return message;
 	}
 

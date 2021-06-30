@@ -30,13 +30,17 @@ public class IndexController {
 	@Qualifier("productService")
 	private ProductService productService;
 
+	private String title1 = "title" ;
+	private String cat = "categories";
+	
+
 	@GetMapping(value = { "/", "/home" })
 	public ModelAndView home() {
 		ModelAndView modelAndView = new ModelAndView("page");
 		modelAndView.addObject("userClickHome", true);
-		modelAndView.addObject("title", "Home");
+		modelAndView.addObject(title1, "Home");
 
-		modelAndView.addObject("categories", categoryService.findAllCategories());
+		modelAndView.addObject(cat, categoryService.findAllCategories());
 
 		return modelAndView;
 	}
@@ -45,7 +49,7 @@ public class IndexController {
 	public ModelAndView contact() {
 		ModelAndView modelAndView = new ModelAndView("page");
 		modelAndView.addObject("userClickContact", true);
-		modelAndView.addObject("title", "Contact Us");
+		modelAndView.addObject(title1, "Contact Us");
 
 		return modelAndView;
 	}
@@ -54,7 +58,7 @@ public class IndexController {
 	public ModelAndView about() {
 		ModelAndView modelAndView = new ModelAndView("page");
 		modelAndView.addObject("userClickAbout", true);
-		modelAndView.addObject("title", "About Us");
+		modelAndView.addObject(title1, "About Us");
 
 		return modelAndView;
 	}
@@ -75,7 +79,7 @@ public class IndexController {
 		if (logout != null) {
 			modelAndView.addObject("logout", "User has Successfully Logged out!");
 		}
-		modelAndView.addObject("title", "Login");
+		modelAndView.addObject(title1, "Login");
 
 		return modelAndView;
 	}
@@ -89,11 +93,11 @@ public class IndexController {
 	public ModelAndView showAllProducts() {
 		ModelAndView modelAndView = new ModelAndView("page");
 		modelAndView.addObject("userClickAllProducts", true);
-		modelAndView.addObject("title", "All Products");
+		modelAndView.addObject(title1, "All Products");
 
 		// passing the list of categories
 
-		modelAndView.addObject("categories", categoryService.findAllCategories());
+		modelAndView.addObject(cat, categoryService.findAllCategories());
 
 		return modelAndView;
 	}
@@ -106,11 +110,11 @@ public class IndexController {
 		category = categoryService.findCategoryById(id);
 
 		modelAndView.addObject("userClickCategoryProducts", true);
-		modelAndView.addObject("title", category.getName());
+		modelAndView.addObject(title1, category.getName());
 
 		// passing the list of categories
 
-		modelAndView.addObject("categories", categoryService.findAllCategories());
+		modelAndView.addObject(cat, categoryService.findAllCategories());
 
 		// passing the single category object
 		modelAndView.addObject("category", category);
@@ -134,7 +138,7 @@ public class IndexController {
 
 		product.setViews(product.getViews() + 1);
 		productService.updateProduct(product);
-		modelAndView.addObject("title", product.getName());
+		modelAndView.addObject(title1, product.getName());
 		modelAndView.addObject("product", product);
 		modelAndView.addObject("userClickShowProduct", true);
 
@@ -148,7 +152,7 @@ public class IndexController {
 	@GetMapping("/access-denied")
 	public ModelAndView accessDenied() {
 		ModelAndView modelAndView = new ModelAndView("404");
-		modelAndView.addObject("title", "403 - Access Denied");
+		modelAndView.addObject(title1, "403 - Access Denied");
 		modelAndView.addObject("errorTitle", "Aha! Caught You");
 		modelAndView.addObject("errorDescription", "You Are not authorized to Access this Page");
 		return modelAndView;

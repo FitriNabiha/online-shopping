@@ -31,6 +31,7 @@ public class CartController {
 	@Autowired
 	@Qualifier("cartService")
 	private CartService cartService;
+	private String msj = "message";
 
 	@GetMapping("/show")
 	public ModelAndView showCart(@RequestParam(name = "result", required = false) String result) {
@@ -39,19 +40,19 @@ public class CartController {
 		if (result != null) {
 			switch (result) {
 			case "updated":
-				modelAndView.addObject("message", "CartLine has been updated sucessfully");
+				modelAndView.addObject(msj, "CartLine has been updated sucessfully");
 				break;
 
 			case "error":
-				modelAndView.addObject("message", "Something went wrong!!");
+				modelAndView.addObject(msj, "Something went wrong!!");
 				break;
 				
 			case "added":
-				modelAndView.addObject("message", "Cartline has been added sucessfully!");
+				modelAndView.addObject(msj, "Cartline has been added sucessfully!");
 				break;
 
 			case "deleted":
-				modelAndView.addObject("message", "Cart has been removed sucessfully");
+				modelAndView.addObject(msj, "Cart has been removed sucessfully");
 				break;
 			default:
 				break;
@@ -76,7 +77,6 @@ public class CartController {
 			cartLine.setProductCount(count);
 			cartLine.setBuyingPrice(product.getUnitPrice());
 			cartLine.setTotal(product.getUnitPrice() * count);
-			String response = cartLineService.updateCartLine(cartLine) + "";
 			Cart cart = cartService.findCart();
 			cart.setGrandTotal(cart.getGrandTotal() - oldTotal + cartLine.getTotal());
 			cartService.updateCart(cart);
@@ -109,13 +109,6 @@ public class CartController {
 		Cart cart = cartService.findCart();
 		CartLine cartLine = cartLineService.findCartLineByCartIdAndProductId(cart.getId(), id);
 		if (cartLine != null) {
-
-			/*cart.setGrandTotal(cart.getGrandTotal() - cartLine.getTotal());
-			cart.setCartLines(cart.getCartLines() - 1);
-			cartService.updateCart(cart);
-			// TODO : remove the cartLine
-			cartLineService.deleteCartLine(cartLine);
-			return "redirect:/cart/show?result=deleted";*/
 			return "";
 		} else {
 			cartLine = new CartLine();

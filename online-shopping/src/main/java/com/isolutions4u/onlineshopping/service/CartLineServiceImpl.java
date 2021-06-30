@@ -34,8 +34,7 @@ public class CartLineServiceImpl implements CartLineService {
 	@Override
 	public boolean updateCartLine(CartLine cartLine) {
 		// TODO Auto-generated method stub
-		cartLineRepository.saveAndFlush(cartLine);
-		return true;
+		return saveCartLine(cartLine);
 	}
 
 	@Override
